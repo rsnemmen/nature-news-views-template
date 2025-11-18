@@ -1,0 +1,115 @@
+% definitions.tex
+% Shared preamble and metadata for a Nature-style News & Views article.
+
+% --------------------------------------------------
+% BASIC PACKAGES AND FONTS (LuaLaTeX)
+% --------------------------------------------------
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures=TeX}
+
+% You can change these fonts to match your preference or institutional template.
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+\setmonofont{Latin Modern Mono}
+
+\usepackage[a4paper,margin=1.8cm]{geometry}
+
+% Three-column layout
+\usepackage{multicol}
+\setlength{\columnsep}{0.6cm}  % space between columns
+
+% Figures and captions
+\usepackage{graphicx}
+\usepackage{caption}
+\captionsetup{
+  font=footnotesize,
+  labelfont=bf,
+  labelsep=period
+}
+
+% Micro-typography for better appearance
+\usepackage{microtype}
+
+% Superscript, numeric, compressed citations (Nature-like)
+\usepackage[super,sort&compress,comma,numbers]{natbib}
+
+% Hyperlinks
+\usepackage[dvipsnames]{xcolor}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  allcolors=MidnightBlue,
+  pdfauthor={},
+  pdftitle={}
+}
+
+% No numbered section headings (News & Views typically uses unnumbered headings)
+\setcounter{secnumdepth}{0}
+
+% Paragraph layout: 9 pt body text with modest leading
+\linespread{1.04}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.3em}
+
+% --------------------------------------------------
+% METADATA MACROS (EDIT THESE FOR YOUR ARTICLE)
+% --------------------------------------------------
+
+% Article type label
+\newcommand{\articletype}{News \& Views}
+
+% Main title (sentence case is typical for Nature N\&V)
+\newcommand{\articletitle}{Concise, informative title in sentence case}
+
+% Optional subtitle / strapline. Leave empty if not needed:
+% \newcommand{\articlesubtitle}{}  % uncomment and use this to remove subtitle
+\newcommand{\articlesubtitle}{Optional standfirst-style subtitle (can be left empty)}
+
+% Authors line (use superscripts for affiliations)
+\newcommand{\articleauthors}{%
+First A. Author$^{1}$ and Second B. Author$^{2}$%
+}
+
+% Affiliations block. Line-break with \\
+\newcommand{\articleaffiliations}{%
+$^{1}$Department, Institution, City, Country\\%
+$^{2}$Department, Institution, City, Country%
+}
+
+% Correspondence line
+\newcommand{\articlecorrespondence}{%
+Correspondence to: First A. Author (\href{mailto:first.author@example.com}{first.author@example.com})%
+}
+
+% --------------------------------------------------
+% CUSTOM ENVIRONMENTS AND HELPER MACROS
+% --------------------------------------------------
+
+% Standfirst: short italic summary paragraph beneath the title block
+\newenvironment{standfirst}{%
+  \begin{quote}\itshape\normalsize
+}{%
+  \end{quote}
+}
+
+% Helper macro for common references in text
+\newcommand{\figref}[1]{Fig.~\ref{#1}}
+\newcommand{\secref}[1]{Section~\ref{#1}}
+
+% Wide figure environment:
+% Use this *inside* the three-column text to insert a figure spanning all columns.
+% Example:
+%   \begin{widefigure}
+%     \includegraphics[width=0.8\textwidth]{myfig}
+%     \caption{...}
+%   \end{widefigure}
+%
+% It temporarily ends the multicol environment, inserts the figure, then restarts.
+\newenvironment{widefigure}[1][t]{%
+  \end{multicols}
+  \begin{figure}[#1]
+  \centering
+}{%
+  \end{figure}
+  \begin{multicols}{3}
+}
