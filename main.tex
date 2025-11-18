@@ -5,7 +5,7 @@
 
 \begin{document}
 
-% ---------- TITLE BLOCK (EDIT METADATA IN definitions.tex) ----------
+% ---------- TITLE BLOCK ----------
 \vspace*{1em}
 
 {\large\bfseries \articletype\par}
@@ -19,21 +19,7 @@
 % Leave \articlesubtitle empty in definitions.tex if you do not want a subtitle
 {\large\itshape \articlesubtitle\par}
 
-\vspace{0.75em}
-
-{\normalsize \articleauthors\par}
-
-\vspace{0.3em}
-
-{\footnotesize\itshape \articleaffiliations\par}
-
-\vspace{0.5em}
-
-{\footnotesize\itshape \articlecorrespondence\par}
-
 \vspace{1.0em}
-
-\hrule
 
 % ---------- STANDFIRST (SHORT SUMMARY PARAGRAPH) ----------
 \begin{standfirst}
@@ -44,11 +30,42 @@ and state clearly what the primary paper has shown and why it matters.
 
 \vspace{1em}
 
-\hrule
-
 % ---------- MAIN TEXT IN THREE COLUMNS ----------
 \begin{multicols}{3}
 \input{meat}
 \end{multicols}
+
+% ---------- AUTHOR INFORMATION AFTER MAIN TEXT ----------
+\vspace{1em}
+
+{\footnotesize
+\noindent\textbf{Author information}\\[0.25em]
+\articleauthors\\[0.25em]
+\articleaffiliations\\[0.25em]
+\articlecorrespondence
+}
+
+% ---------- REFERENCES (FULL-WIDTH) ----------
+\vspace{1em}
+
+\section*{References}
+
+% You can manage references either via BibTeX or manually.
+% For a simple template, we include a manual thebibliography environment.
+% Use \cite{key} in the text to refer to these entries.
+
+\begin{thebibliography}{9}
+
+\bibitem{PrimaryPaper}
+A.~N.~Other, B.~Researcher \& C.~Scientist.
+Title of the primary research paper.
+\emph{Nature} \textbf{000}, 000--000 (2025).
+
+\bibitem{Background}
+D.~Expert.
+Informative review or background reference.
+\emph{Journal Name} \textbf{00}, 00--00 (2024).
+
+\end{thebibliography}
 
 \end{document}
