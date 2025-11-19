@@ -3,7 +3,7 @@
 This repository contains a minimal LaTeX template for writing a
 **Nature News & Views**–style article. The layout is: 9 pt body text, 3-column main body, simple title block, standfirst (summary paragraph), and references.
 
-Have a look at the sample PDF and see if you like. A typical workflow involves:
+Have a look at [the sample PDF](main.pdf) and see if you like. A typical workflow involves:
 
 1. cd to this directory and issue `make watch`. This will update the PDF everytime you change one of the files (i.e. Overleaf for free, locally running).
 2. Edit `definitions.tex` with the relevant metadata (author, title etc).
