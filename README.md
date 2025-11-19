@@ -1,13 +1,15 @@
 # Nature News & Views LaTeX Template
 
-This repository contains a minimal LuaLaTeX template for writing a
-**Nature News & Views**–style article.
+This repository contains a minimal LaTeX template for writing a
+**Nature News & Views**–style article. The layout is: 9 pt body text, 3-column main body, simple title block, standfirst (summary paragraph), and references.
 
-The layout is:
+Have a look at the sample PDF and see if you like. A typical workflow involves:
 
-- 9 pt body text
-- 3-column main body
-- Simple title block, standfirst (summary paragraph), and references
+1. cd to this directory and issue `make watch`. This will update the PDF everytime you change one of the files (i.e. Overleaf for free, locally running).
+2. Edit `definitions.tex` with the relevant metadata (author, title etc).
+3. Write `meat.tex` with your article.
+
+Disclaimer: this template was mostly produced by GPT-5.1-high with a few changes by a human. Prompt available in the first commit message. The template works. 
 
 ## Files
 
@@ -56,23 +58,3 @@ From the directory containing `main.tex` and the `Makefile`:
   - `xcolor`
   - `hyperref`
 - Optional: `latexmk` (for `make watch` and robust incremental recompilation).
-
-## What you should edit
-
-### 1. Article metadata (`definitions.tex`)
-
-In `definitions.tex`, edit these macros to match your article:
-
-```tex
-\newcommand{\articletitle}{Concise, informative title in sentence case}
-\newcommand{\articlesubtitle}{Optional standfirst-style subtitle (can be left empty)}
-\newcommand{\articleauthors}{%
-First A. Author$^{1}$ and Second B. Author$^{2}$%
-}
-\newcommand{\articleaffiliations}{%
-$^{1}$Department, Institution, City, Country\\%
-$^{2}$Department, Institution, City, Country%
-}
-\newcommand{\articlecorrespondence}{%
-Correspondence to: First A. Author (\href{mailto:first.author@example.com}{first.author@example.com})%
-}
