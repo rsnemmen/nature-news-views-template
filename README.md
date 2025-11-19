@@ -9,8 +9,6 @@ Have a look at [the sample PDF](main.pdf) and see if you like. A typical workflo
 2. Edit `definitions.tex` with the relevant metadata (author, title etc).
 3. Write `meat.tex` with your article.
 
-Disclaimer: this template was mostly produced by GPT-5.1-high with a few changes by a human. Prompt available in the first commit message. The template works. 
-
 ## Files
 
 - `main.tex` — top-level file; orchestrates title block and three-column layout.
@@ -58,3 +56,7 @@ From the directory containing `main.tex` and the `Makefile`:
   - `xcolor`
   - `hyperref`
 - Optional: `latexmk` (for `make watch` and robust incremental recompilation).
+
+## Disclaimer
+
+This template was mostly produced by GPT-5.1-high with a few changes by a human. I provided the `Makefile` and detailed prompt, available in the first commit message. The template works. 
