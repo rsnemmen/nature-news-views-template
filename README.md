@@ -18,6 +18,8 @@ Have a look at [the sample PDF](main.pdf) and see if you like. A typical workflo
 - `Makefile` — convenient build commands using LuaLaTeX (and `latexmk` if available).
 - `README.md` — this file.
 
+If you want to use a BibTeX file with your references, checkout the `bibtex` branch: `git checkout bibtex`.
+
 ## How to build
 
 From the directory containing `main.tex` and the `Makefile`:
