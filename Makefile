@@ -10,7 +10,7 @@ ENGINE ?= lualatex
 ENGINE_OPTS ?= -synctex=1 -halt-on-error -interaction=nonstopmode -file-line-error
 
 # Add other .tex files you \input or \include here, or let latexmk discover them.
-DEPS := $(wildcard definitions.tex meat.tex)
+DEPS := $(wildcard *.tex) $(wildcard *.bib)
 
 HAVE_LATEXMK := $(shell command -v latexmk >/dev/null 2>&1 && echo yes || echo no)
 
