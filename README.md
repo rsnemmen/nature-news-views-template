@@ -8,6 +8,7 @@ Have a look at [the sample PDF](main.pdf) and see if you like. A typical workflo
 1. cd to this directory and issue `make watch`. This will update the PDF everytime you change one of the files (i.e. Overleaf for free, locally running).
 2. Edit `definitions.tex` with the relevant metadata (author, title etc).
 3. Write `meat.tex` with your article.
+4. Update `refs.bib` with the appropriate references.
 
 ## Files
 
@@ -55,6 +56,7 @@ From the directory containing `main.tex` and the `Makefile`:
   - `natbib`
   - `xcolor`
   - `hyperref`
+  - `nature`
 - Optional: `latexmk` (for `make watch` and robust incremental recompilation).
 
 ## Disclaimer
