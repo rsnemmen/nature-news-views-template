@@ -45,19 +45,15 @@ From the directory containing `main.tex` and the `Makefile`:
 
 - A reasonably recent TeX distribution (e.g. TeX Live, MacTeX, MiKTeX).
 - `lualatex` (LuaLaTeX) — required because the template uses `fontspec`.
-- Recommended packages (usually included in full TeX distributions):
-  - `extarticle` (extsizes)
-  - `fontspec`
-  - `geometry`
-  - `multicol`
-  - `graphicx`
-  - `caption`
-  - `microtype`
-  - `natbib`
-  - `xcolor`
-  - `hyperref`
-  - `nature`
-- Optional: `latexmk` (for `make watch` and robust incremental recompilation).
+- Recommended packages (usually included in full TeX distributions):`extarticle` (extsizes), `fontspec`, `geometry`, `multicol`, `graphicx`, `caption`, `microtype`, `natbib`, `xcolor`, `hyperref`, `nature`, `latexmk` (for `make watch` and robust incremental recompilation).
+
+Commands to install all required packages on a minimal installation with [Basic TeX](https://www.tug.org/mactex/morepackages.html):
+
+```bash
+sudo tlmgr update --self
+sudo tlmgr install collection-latexrecommended collection-luatex collection-langportuguese collection-fontsrecommended
+sudo tlmgr install babel hyphen-portuguese amsfonts amsmath graphics xcolor soul  pgf todonotes ifoddpage marginfix hyperref tikzsymbols  mdframed emoji fontspec luaotfload ifmtarg threeparttable tablefootnote wrapfig todonotes soul fontawesome xifthen revtex revtex4-1 epsf type1cm enumitem newtx fontaxes xstring dblfloatfix scalerel placeins subfigure tcolorbox pdfcol adjustbox titling zref needspace latexmk nature
+```
 
 ## Disclaimer
 
