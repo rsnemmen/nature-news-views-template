@@ -16,7 +16,7 @@ HAVE_LATEXMK := $(shell command -v latexmk >/dev/null 2>&1 && echo yes || echo n
 
 .DEFAULT_GOAL := pdf
 
-.PHONY: all pdf watch open clean distclean help
+.PHONY: all pdf docx watch open clean distclean help
 
 all: pdf
 
@@ -29,6 +29,10 @@ else
 	$(ENGINE) $(ENGINE_OPTS) $(MAIN).tex
 	$(ENGINE) $(ENGINE_OPTS) $(MAIN).tex
 endif
+
+# Build Word document via pandoc, ensuring the PDF build has succeeded
+docx: $(MAIN).pdf
+	pandoc $(MAIN).tex -s --from=latex --to=docx --resource-path=. -o $(MAIN).docx
 
 open: $(MAIN).pdf
 	@open "$(MAIN).pdf"
@@ -52,12 +56,13 @@ endif
 		"$(MAIN).tdo" "*.auxlock"
 
 distclean: clean
-	@rm -f "$(MAIN).pdf"
+	@rm -f "$(MAIN).pdf" "$(MAIN).docx"
 
 help:
 	@printf "%s\n" \
 	"make            -> build $(MAIN).pdf (uses latexmk if available)" \
 	"make watch      -> continuous recompilation (requires latexmk)" \
+	"make docx       -> build $(MAIN).docx via pandoc (after building PDF)" \
 	"make open       -> open the PDF (macOS 'open')" \
 	"make clean      -> remove auxiliary files" \
-	"make distclean  -> remove auxiliary files and the PDF"
+	"make distclean  -> remove auxiliary files, PDF and DOCX"
