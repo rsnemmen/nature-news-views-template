@@ -60,8 +60,8 @@ endif
 		"$(MAIN).tdo" "*.auxlock"
 
 distclean: clean
-	@rm -f "$(MAIN).pdf" "$(MAIN).docx"
-
+	@rm -f "$(MAIN).pdf" "$(MAIN).docx" "$(MAIN).txt"
+	
 help:
 	@printf "%s\n" \
 	"make            -> build $(MAIN).pdf (uses latexmk if available)" \
