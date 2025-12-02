@@ -37,6 +37,11 @@ docx: $(MAIN).pdf
 open: $(MAIN).pdf
 	@open "$(MAIN).pdf"
 
+# Build ASCII version via pandoc
+txt: $(MAIN).pdf
+  pandoc $(MAIN).tex -s --from=latex --to=docx --resource-path=. --citeproc --bibliography=refs.bib --to=plain --wrap=none -o $(MAIN).txt
+
+
 watch:
 ifeq ($(HAVE_LATEXMK),yes)
 	latexmk -lualatex -pvc -view=none $(MAIN).tex
@@ -64,5 +69,6 @@ help:
 	"make watch      -> continuous recompilation (requires latexmk)" \
 	"make open       -> open the PDF (macOS 'open')" \
 	"make docx       -> build $(MAIN).docx via pandoc (after building PDF)" \
+	"make txt        -> build $(MAIN).txt via pandoc (after building PDF)" \
 	"make clean      -> remove auxiliary files" \
 	"make distclean  -> remove auxiliary files, the PDF, and the DOCX"
