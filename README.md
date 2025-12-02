@@ -8,6 +8,7 @@ Have a look at [the sample PDF](main.pdf) and see if you like. A typical workflo
 1. cd to this directory and issue `make watch`. This will update the PDF everytime you change one of the files (i.e. Overleaf for free, locally running).
 2. Edit `definitions.tex` with the relevant metadata (author, title etc).
 3. Write `meat.tex` with your article.
+4. Once you are happy with your article, `make docx`, inspect the resulting word document and send it to Nature.
 
 ## Files
 
@@ -33,6 +34,9 @@ From the directory containing `main.tex` and the `Makefile`:
 - `make open`  
   Open `main.pdf` (uses `open` on macOS; adjust if needed on other systems).
 
+- `make docx`  
+  Builds `main.docx` using pandoc, after building PDF.
+
 - `make clean`  
   Remove auxiliary build files (`.aux`, `.log`, `.toc`, etc.).
 
@@ -44,9 +48,11 @@ From the directory containing `main.tex` and the `Makefile`:
 
 ## Requirements
 
-- A reasonably recent TeX distribution (e.g. TeX Live, MacTeX, MiKTeX).
-- `lualatex` (LuaLaTeX) — required because the template uses `fontspec`.
-- Recommended packages (usually included in full TeX distributions):`extarticle` (extsizes), `fontspec`, `geometry`, `multicol`, `graphicx`, `caption`, `microtype`, `natbib`, `xcolor`, `hyperref`, `latexmk` (for `make watch` and robust incremental recompilation).
+(1) A reasonably recent TeX distribution (e.g. TeX Live, MacTeX, MiKTeX).
+
+(2) `lualatex` (LuaLaTeX) — required because the template uses `fontspec`.
+
+(3) Recommended packages (usually included in full TeX distributions):`extarticle` (extsizes), `fontspec`, `geometry`, `multicol`, `graphicx`, `caption`, `microtype`, `natbib`, `xcolor`, `hyperref`, `latexmk` (for `make watch` and robust incremental recompilation).
 
 Commands to install all required packages on a minimal installation with [Basic TeX](https://www.tug.org/mactex/morepackages.html):
 
@@ -54,6 +60,12 @@ Commands to install all required packages on a minimal installation with [Basic 
 sudo tlmgr update --self
 sudo tlmgr install collection-latexrecommended collection-luatex collection-langportuguese collection-fontsrecommended
 sudo tlmgr install babel hyphen-portuguese amsfonts amsmath graphics xcolor soul  pgf todonotes ifoddpage marginfix hyperref tikzsymbols  mdframed emoji fontspec luaotfload ifmtarg threeparttable tablefootnote wrapfig todonotes soul fontawesome xifthen revtex revtex4-1 epsf type1cm enumitem newtx fontaxes xstring dblfloatfix scalerel placeins subfigure tcolorbox pdfcol adjustbox titling zref needspace latexmk nature draftwatermark
+```
+
+(4) pandoc to generate the final word document for submission to Nature
+
+```bash
+brew install pandoc pandoc-crossref
 ```
 
 ## Disclaimer
